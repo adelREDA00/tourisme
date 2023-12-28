@@ -1,8 +1,9 @@
 import React from 'react'
-import {  useState } from 'react';
+import {  useState,useContext } from 'react';
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/Authcontext';
 import axios from "axios";
 
 
@@ -11,6 +12,9 @@ const Conx = () => {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    const { loading, error, dispatch } = useContext(AuthContext);
+
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -31,6 +35,8 @@ const Conx = () => {
             password,
           });
 
+        dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+        dispatch({ type: "SET_TOKEN", payload: res.data.token });
         localStorage.setItem("token", res.data.token);
         navigate("/");
        }catch(err){

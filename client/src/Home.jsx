@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState,useEffect } from 'react';
+import { useState,useEffect,useContext } from 'react';
 import about from "./assets/plane.jpg"
 import logo from "./assets/HOUSE.svg"
 import { Icon } from '@iconify/react';
@@ -8,10 +8,13 @@ import axios from 'axios';
 import Aform from './comp/Aform.jsx';
 import Sform from './comp/Sform.jsx';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/Authcontext.jsx';
 
 
 const Home = () => {
 
+  //tracking if user is logedIn
+  const { user,dispatch } = useContext(AuthContext);
 
   const [isActive, setIsActive] = useState(false);
   const [isActiveBtn, setIsActiveBtn] = useState(false);
@@ -51,7 +54,13 @@ const handlePostSuccess = () => {
   useEffect(() => {
     fetchData(); // Invoke the fetchData function when the component mounts
   }, []); // Empty dependency array means this effect runs only once (on mount)
-console.log(data);
+
+  //handle LogOut
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+    localStorage.setItem("token", null);
+  };
+
   return (
     <body id="top">
         <header className="header" data-header>
@@ -84,9 +93,17 @@ console.log(data);
               </ul>
             </nav>
 
+            {user==null ? (
             <Link className="btn btn-secondary" to={`/register`} >
-            Inscription
+                 Inscription
             </Link>
+            ): (
+            <Link onClick={handleLogout} className="btn btn-secondary" to={`/login`} >
+            Logout
+            </Link>
+            )}
+
+       
 
             
 
@@ -137,6 +154,8 @@ console.log(data);
                   </div>
 
                   {isActiveBtn ? <Sform /> : <Aform handlePostSuccess={handlePostSuccess} />}
+
+
                 </div>
 
               </div>
@@ -470,7 +489,7 @@ console.log(data);
             <div className="container">
 
               <p className="copyright">
-                &copy; 2022 Realvine. All Right Reserved by <a href="#" className="copyright-link">Toumi Reda</a>.
+                &copy; 2023 avia. All Right Reserved by <a href="#" className="copyright-link">Toumi Reda</a>.
               </p>
 
               <ul className="social-list">
