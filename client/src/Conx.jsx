@@ -71,14 +71,14 @@ const Conx = () => {
       <span className="span">Forgot password?</span>
     </div>
     <button onClick={handleClick} className="button-submit">connexion</button>
-    <p className="p">Don't have an account?  <Link to={`/register`}  className="span" > inscription</Link>
+    <p className="p">Vous n'avez pas de compte ?  <Link to={`/register`}  className="span" > inscription</Link>
 
-    </p><p className="p line">Or With</p>
+    </p>
 
-    <div className="flex-row">
+    {/* <div className="flex-row">
   
 
-</div>
+</div> */}
 </form>
   )
 }

@@ -82,14 +82,14 @@ const Insc = () => {
       <span className="span">Forgot password?</span>
     </div>
     <button  className="button-submit" onClick={handleClick}>inscription</button>
-    <p className="p">have an account? <Link to={`/login`}  className="span" > connexion</Link>
+    <p className="p">Vous avez un compte ? <Link to={`/login`}  className="span" > connexion</Link>
 
-    </p><p className="p line">Or With</p>
-
+    </p>
+{/* 
     <div className="flex-row">
-  
+  <h1>adel</h1>
 
-</div>
+</div> */}
 </form>
   )
 }

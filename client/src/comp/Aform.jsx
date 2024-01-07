@@ -7,8 +7,8 @@ const Aform = ({handlePostSuccess}) => {
         flightNumber: '',
         departureCity: '',
         arrivalCity: '',
-        departureTime: 0,
-        arrivalTime: 0,
+        departureTime: '',
+        arrivalTime: '',
         price:0,
         availableSeats:0,
       });
@@ -56,7 +56,7 @@ const Aform = ({handlePostSuccess}) => {
 
       <label htmlFor="search" className="input-label">Depart :</label>
 
-      <input type="search" name="departureCity" id="search" placeholder="Search your home" onChange={handleInputChange} value={flightValues.departureCity}  required
+      <input type="search" name="departureCity" id="search" placeholder="Lieu de départ" onChange={handleInputChange} value={flightValues.departureCity}  required
         className="input-field" />
 
       <ion-icon name="search-outline"></ion-icon>
@@ -65,9 +65,9 @@ const Aform = ({handlePostSuccess}) => {
 
     <div className="input-wrapper">
 
-<label htmlFor="search" className="input-label">Arrive :</label>
+<label htmlFor="search" className="input-label">Destination :</label>
 
-<input type="search" name="arrivalCity" onChange={handleInputChange} value={flightValues.arrivalCity}  id="search" placeholder="Search your home" required
+<input type="search" name="arrivalCity" onChange={handleInputChange} value={flightValues.arrivalCity}  id="search" placeholder="destination" required
   className="input-field" />
 
 <ion-icon name="search-outline"></ion-icon>
@@ -77,9 +77,9 @@ const Aform = ({handlePostSuccess}) => {
 
 <div className="input-wrapper">
 
-<label htmlFor="search" className="input-label">Flight Num :</label>
+<label htmlFor="search" className="input-label"> Numéro de vol :</label>
 
-<input  type="number" name="flightNumber"onChange={handleInputChange} value={flightValues.flightNumber} id="search" placeholder="Search your home" required
+<input  type="number" name="flightNumber"onChange={handleInputChange} value={flightValues.flightNumber} id="search" placeholder="XXX-1514-857" required
   className="input-field" />
 
 <ion-icon name="search-outline"></ion-icon>
@@ -91,7 +91,7 @@ const Aform = ({handlePostSuccess}) => {
 
 <label htmlFor="search" className="input-label">Prix :</label>
 
-<input  type="number" name="price"onChange={handleInputChange} value={flightValues.price} id="search" placeholder="Search your home" required
+<input  type="number" name="price"onChange={handleInputChange} value={flightValues.price} id="search" placeholder="XX €" required
   className="input-field" />
 
 <ion-icon name="search-outline"></ion-icon>
@@ -101,9 +101,9 @@ const Aform = ({handlePostSuccess}) => {
 
 <div className="input-wrapper">
 
-<label htmlFor="search" className="input-label">Depart Time :</label>
+<label htmlFor="search" className="input-label">Heure de départ :</label>
 
-<input type="search" name="departureTime"onChange={handleInputChange} value={flightValues.departureTime} id="search" placeholder="Search your home" required
+<input type="search" name="departureTime"onChange={handleInputChange} value={flightValues.departureTime} id="search" placeholder="5:20 PM " required
   className="input-field" />
 
 <ion-icon name="search-outline"></ion-icon>
@@ -114,9 +114,9 @@ const Aform = ({handlePostSuccess}) => {
 
 <div className="input-wrapper">
 
-<label htmlFor="search" className="input-label">Arrive Time :</label>
+<label htmlFor="search" className="input-label">Heure d'arrivée:</label>
 
-<input type="search" name="arrivalTime"onChange={handleInputChange} value={flightValues.arrivalTime} id="search" placeholder="Search your home" required
+<input type="search" name="arrivalTime"onChange={handleInputChange} value={flightValues.arrivalTime} id="search" placeholder="8:01 PM" required
   className="input-field" />
 
 <ion-icon name="search-outline"></ion-icon>
@@ -125,9 +125,9 @@ const Aform = ({handlePostSuccess}) => {
 
 <div className="input-wrapper">
 
-<label  className="input-label">Availble seats :</label>
+<label  className="input-label">Places disponibles :</label>
 
-<input  type="number" name="availableSeats"onChange={handleInputChange} value={flightValues.availableSeats} id="search" placeholder="Search your home" required
+<input  type="number" name="availableSeats"onChange={handleInputChange} value={flightValues.availableSeats} id="search" placeholder="YYY" required
   className="input-field" />
 
 <ion-icon name="search-outline"></ion-icon>

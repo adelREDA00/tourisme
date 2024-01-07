@@ -10,7 +10,6 @@ import Sform from './comp/Sform.jsx';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/Authcontext.jsx';
 
-
 const Home = () => {
 
   //tracking if user is logedIn
@@ -61,8 +60,10 @@ const handlePostSuccess = () => {
     localStorage.setItem("token", null);
   };
 
+
   return (
     <body id="top">
+           
         <header className="header" data-header>
           <div className="container">
 
@@ -74,9 +75,17 @@ const handlePostSuccess = () => {
             <nav className={`navbar container ${isActive ? 'active' : '' }`} data-navbar>
               <ul className="navbar-list">
 
-                <li>
-                  <a href="#" className="navbar-link" data-nav-link>Accueil</a>
-                </li>
+             
+            {user==null ? (
+              <li>
+              <a href="#" className="navbar-link" data-nav-link>Vols</a>
+            </li>
+            ): (
+              <li>
+          
+              <a href="#" className="navbar-link" data-nav-link>        <Icon icon="solar:user-linear" className='uicon' /> {user.username}</a>
+            </li>
+            )}
 
                 <li>
                   <a href="#vl" className="navbar-link" data-nav-link>Vols</a>
@@ -99,7 +108,7 @@ const handlePostSuccess = () => {
             </Link>
             ): (
             <Link onClick={handleLogout} className="btn btn-secondary" to={`/login`} >
-            Logout
+            Déconnexion
             </Link>
             )}
 
@@ -148,7 +157,7 @@ const handlePostSuccess = () => {
                   <div className="form-tab">
 
                     <button onClick={toggleBtn} className= {`tab-btn ${isActiveBtn ? 'active' : '' }`}    data-user-id="1" >Acheter</button>
-                    <button onClick={toggleBtn}  className=  {`tab-btn ${isActiveBtn ? '' : 'active' }`}    data-user-id="2"><Icon icon="ion:add-outline" /> Add</button>
+                    <button onClick={toggleBtn}  className=  {`tab-btn ${isActiveBtn ? '' : 'active' }`}    data-user-id="2"><Icon icon="ion:add-outline" /> Ajouter</button>
                     {/* <button className="tab-btn" data-tab-btn>Louer</button> */}
 
                   </div>
@@ -177,7 +186,7 @@ const handlePostSuccess = () => {
                 
 
                   {data.slice().reverse().map((item,index) => (
-                     <Card  fdata={item}  key={index}/>
+                     <Card handlePostSuccess={handlePostSuccess} user={user} fdata={item}  key={index}/>
                    ))}
 
                 </ul>
@@ -523,6 +532,8 @@ const handlePostSuccess = () => {
             </div>
           </div>
 
+    
+
         </footer>
 
 
@@ -536,7 +547,7 @@ const handlePostSuccess = () => {
 
 
 
-
+  
 
 
     </body>

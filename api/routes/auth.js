@@ -46,7 +46,7 @@ router.post("/connexion", async (req, res) =>{
             return res.status(400).json(errorMessage);
           }
           //signinig the jwt 
-          const token = jwt.sign(user._doc, process.env.MY_SECRET, { expiresIn: "1h" });
+          const token = jwt.sign(user._doc, process.env.MY_SECRET); //need expiration for the token
           // destructuring to create a new object called others that contains all properties from user._doc except the password.
           const { password: userPassword, ...others } = user._doc;
           return res.cookie("access_token", token, { httpOnly: true }).status(200).json({ token: token, ...others });

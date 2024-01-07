@@ -303,9 +303,17 @@ body {
   font-weight: var(--fw-500);
   letter-spacing: 1px;
   padding: 12px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+
+}
+.uicon{
+  font-size: 1.3rem;
 }
 
-.navbar-link:is(:hover, :focus) { color: var(--green-pigment); }
+.navbar-link:is(:hover, :focus) { color: var(--cadet-gray); }
 
 
 
@@ -541,9 +549,15 @@ body {
   top: 20px;
   right: 20px;
   background-color: var(--white);
-  color: var(--maximum-red);
+
   padding: 12px;
-  border-radius: 50px;
+  font-size: 1.8rem;
+  transition: all .5s ease;
+  &:hover{
+    scale: (1.1);
+    color: var(--maximum-red);
+  }
+
 }
 
 .property-card .card-content {
@@ -636,6 +650,17 @@ body {
   display: flex;
   align-items: center;
   gap: 1.3rem;
+
+}
+
+.info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  font-size: 1.3rem;
+  margin-left: 2rem;
+  color: var(--cadet-gray);
 }
 
 
@@ -1190,7 +1215,7 @@ body {
 .form {
   display: flex;
   margin:  0 auto;
-  margin-top: 5rem;
+  margin-top: 10rem;
   flex-direction: column;
   gap: 10px;
   background-color: #ffffff;
@@ -1310,6 +1335,98 @@ body {
   }
 }
 
+
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+  .modal-content {
+    position: fixed;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    margin: 25% auto;
+    width: 80%;
+    border-radius: 4px;
+
+    .modal-header {
+      background-color: var(--oxford-blue);
+      padding: 10px 16px;
+      color: #fff;
+
+      .close {
+        float: right;
+        cursor: pointer;
+        &:hover{
+          color: rgb(231, 83, 83);
+        }
+      }
+    }
+
+    .modal-body {
+      padding: 16px;
+    }
+
+    .modal-footer {
+      // background-color: var(--mango);
+      padding: 16px;
+      color: #fff;
+      text-align: end;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .8rem;
+        padding: 8px 28px;
+        background-color: var(--green-pigment);
+        color: var(--white);
+        font-size: 14px;
+        border: none;
+        outline: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: all .19s ease;
+        .Icon{
+         font-size: 1.7rem;
+        }
+        &:hover{
+          background-color: var(--mango);
+          color: #252727;
+        }
+      }
+    }
+  }
+}
+
+.show {
+  animation: show 0.2s forwards ease-in;
+}
+.showM {
+  display: block;
+}
+@keyframes show {
+  to {
+    top: 0;
+  }
+}
+@media screen and (max-width: 638px) {
+  .modal-content {
+    margin: 50% auto !important;
+  }
+}
 
 
     

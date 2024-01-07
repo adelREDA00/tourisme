@@ -34,10 +34,14 @@ app.use(cors(corsOptions));
 //--------midlewares ROUTES--------//
 const authRoute = require("./routes/auth")
 const flightRoute = require("./routes/flight")
+const resevRoute = require("./routes/reserv")
+
 
 //creating auth users
 app.use("/api/auth", authRoute);
 app.use("/api/flight", flightRoute);
+app.use("/api/reservations", resevRoute);
+
 
 
 
